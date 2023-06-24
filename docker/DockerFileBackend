@@ -1,0 +1,13 @@
+FROM php:8.0-fpm
+
+RUN apt-get update && apt-get install -y git
+RUN curl -sS http://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+RUN curl -sS https://get.symfony.com/cli/installer | bash && mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
+
+RUN mkdir /backend
+WORKDIR /backend
+COPY ../backend /backend 
+
+EXPOSE 3000
+# WORKDIR /var/www/frontside/back 
+
