@@ -21,7 +21,6 @@ services:
         ports:
             - 3338:3338
         volumes: 
-            # - ./postgres:/var/lib/postgres
             - ./dump:/docker-entrypoint-initdb.d/
     backend:
         build:
@@ -33,9 +32,8 @@ services:
             - ./backend:/backend
         restart: unless-stopped
         command: symfony server:start
-        #env_file: ./.env
         ports:
-        - 3000:8000
+        - 2000:8000
         stdin_open: true
         tty: true
     frontend:
@@ -45,9 +43,8 @@ services:
         volumes: 
             - ./frontend:/frontend
         restart: unless-stopped
-        #command: npm run start
-        #env_file: ./.env
+        command: npm run start
         ports:
-        - 4200:4200
+        - 3000:3000
         stdin_open: true
         tty: true
