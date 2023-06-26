@@ -43,7 +43,7 @@ class TopFilmsUpdateCommand extends Command
         if(!$cacheApiFilms) {
             $io->note('Получение данных из Апи кинопоиска');
             $topFilms = $this->kinopoiskApi->getTopFilms($io);
-            if(!$topFilms) {
+            if(empty($topFilms)) {
                 $io->error('Получен пустой список из Api');
                 return Command::FAILURE;
             }
