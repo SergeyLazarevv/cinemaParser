@@ -20,5 +20,14 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    #Global service registration
+    App\Servise\Kinopoisk\KinopoiskApi: ~
+    Doctrine\Persistence\ManagerRegistry: ~
+    
+    #string arguments registration
+    App\Servise\Kinopoisk\KinopoiskRequest:
+        arguments:
+            $apiKey: "%env(string:KINOPOISK_API_KEY)%"
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

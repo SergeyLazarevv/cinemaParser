@@ -1,6 +1,29 @@
 FROM php:8.0-fpm
 
-RUN apt-get update && apt-get install -y git
+# RUN apt-get update && apt-get install -y git libpq-dev pdo php-pdo_pgsql php-pgsql
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        git \
+        zlib1g-dev \
+        libxml2-dev \
+        libzip-dev \ 
+        libpq-dev \
+        build-essential  \ 
+        libaio1 \ 
+        unzip \
+        zip \
+        cron \
+        nano \
+        libldap2-dev \
+        libldap-common \
+    && docker-php-ext-install \
+         zip \
+        intl \
+        mysqli \
+        pdo \ 
+        pdo_pgsql \
+        pgsql \
+        pdo_mysql
+
 RUN curl -sS http://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 RUN curl -sS https://get.symfony.com/cli/installer | bash && mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
 
