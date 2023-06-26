@@ -23,13 +23,13 @@ class Films
     private ?int $year = null;
 
     #[ORM\Column]
-    private ?int $ratingVoteCount = null;
+    private ?int $rating_vote_count = null;
 
     #[ORM\Column(length: 200)]
-    private ?string $posterUrl = null;
+    private ?string $poster_url = null;
 
     #[ORM\Column(length: 200)]
-    private ?string $posterUrlPreview = null;
+    private ?string $poster_url_preview = null;
 
     public function getId(): ?int
     {
@@ -74,36 +74,36 @@ class Films
 
     public function getRatingVoteCount(): ?int
     {
-        return $this->ratingVoteCount;
+        return $this->rating_vote_count;
     }
 
-    public function setRatingVoteCount(int $ratingVoteCount): static
+    public function setRatingVoteCount(int $rating_vote_count): static
     {
-        $this->ratingVoteCount = $ratingVoteCount;
+        $this->rating_vote_count = $rating_vote_count;
 
         return $this;
     }
 
     public function getPosterUrl(): ?string
     {
-        return $this->posterUrl;
+        return $this->poster_url;
     }
 
-    public function setPosterUrl(string $posterUrl): static
+    public function setPosterUrl(string $poster_url): static
     {
-        $this->posterUrl = $posterUrl;
+        $this->poster_url = $poster_url;
 
         return $this;
     }
 
     public function getPosterUrlPreview(): ?string
     {
-        return $this->posterUrlPreview;
+        return $this->poster_url_preview;
     }
 
-    public function setPosterUrlPreview(string $posterUrlPreview): static
+    public function setPosterUrlPreview(string $poster_url_preview): static
     {
-        $this->posterUrlPreview = $posterUrlPreview;
+        $this->poster_url_preview = $poster_url_preview;
 
         return $this;
     }

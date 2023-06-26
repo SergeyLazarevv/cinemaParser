@@ -26,6 +26,12 @@ class FilmService
 		$this->em->flush();
     }
 
+    public function getFilmsBy(): array
+    {
+        $films = $this->em->createQuery('SELECT f.name, f.year, f.rating, f.rating_vote_count, f.poster_url, f.poster_url_preview FROM App\Entity\Films f')->getResult();
+        return $films;
+    }
+
     public function truncateFilmsTable(): void
     {
         $this->em->createQuery('DELETE FROM App\Entity\Films')->execute();
