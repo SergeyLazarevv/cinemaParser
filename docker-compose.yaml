@@ -4,13 +4,15 @@ services:
     nginx:
         image: nginx:latest
         volumes:
-            - ./frontend/:/var/frontend/
-            - ./backend/:/var/backend/
+            - ./frontend/:/frontend/
+            - ./backend/:/backend/
             - ./nginx/:/etc/nginx/conf.d
         ports: 
             - 80:80
         depends_on:
           - backend
+          - frontend
+          - postgres
     postgres:
         image: postgres:13.3
         restart: always
@@ -31,9 +33,8 @@ services:
         volumes: 
             - ./backend:/backend
         restart: unless-stopped
-        command: symfony server:start
         ports:
-        - 2000:8000
+        - 9000:9000
         stdin_open: true
         tty: true
     frontend:
