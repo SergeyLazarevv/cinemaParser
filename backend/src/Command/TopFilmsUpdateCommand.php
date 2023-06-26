@@ -61,7 +61,7 @@ class TopFilmsUpdateCommand extends Command
         $io->progressStart(count($topFilms));
         foreach($topFilms as $film) {
             $this->filmService->save($film);
-            $io && $io->progressAdvance();
+            $io->progressAdvance();
         }
         $io->progressFinish();
         
