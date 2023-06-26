@@ -30,7 +30,7 @@ RUN curl -sS https://get.symfony.com/cli/installer | bash && mv /root/.symfony5/
 RUN mkdir /backend
 WORKDIR /backend
 COPY ../backend /backend 
+RUN composer install
 
 EXPOSE 3000
-# WORKDIR /var/www/frontside/back 
 

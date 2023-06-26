@@ -13,17 +13,23 @@ class Films
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 200)]
     private ?string $name = null;
 
     #[ORM\Column]
     private ?int $rating = null;
 
     #[ORM\Column]
-    private ?int $date = null;
+    private ?int $year = null;
 
     #[ORM\Column]
-    private ?int $counters = null;
+    private ?int $ratingVoteCount = null;
+
+    #[ORM\Column(length: 200)]
+    private ?string $posterUrl = null;
+
+    #[ORM\Column(length: 200)]
+    private ?string $posterUrlPreview = null;
 
     public function getId(): ?int
     {
@@ -42,38 +48,62 @@ class Films
         return $this;
     }
 
-    public function getRating(): ?int
+    public function getRating(): ?float
     {
         return $this->rating;
     }
 
-    public function setRating(int $rating): static
+    public function setRating(float $rating): static
     {
         $this->rating = $rating;
 
         return $this;
     }
 
-    public function getDate(): ?int
+    public function getYear(): ?int
     {
-        return $this->date;
+        return $this->year;
     }
 
-    public function setDate(int $date): static
+    public function setYear(int $year): static
     {
-        $this->date = $date;
+        $this->year = $year;
 
         return $this;
     }
 
-    public function getCounters(): ?int
+    public function getRatingVoteCount(): ?int
     {
-        return $this->counters;
+        return $this->ratingVoteCount;
     }
 
-    public function setCounters(int $counters): static
+    public function setRatingVoteCount(int $ratingVoteCount): static
     {
-        $this->counters = $counters;
+        $this->ratingVoteCount = $ratingVoteCount;
+
+        return $this;
+    }
+
+    public function getPosterUrl(): ?string
+    {
+        return $this->posterUrl;
+    }
+
+    public function setPosterUrl(string $posterUrl): static
+    {
+        $this->posterUrl = $posterUrl;
+
+        return $this;
+    }
+
+    public function getPosterUrlPreview(): ?string
+    {
+        return $this->posterUrlPreview;
+    }
+
+    public function setPosterUrlPreview(string $posterUrlPreview): static
+    {
+        $this->posterUrlPreview = $posterUrlPreview;
 
         return $this;
     }

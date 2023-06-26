@@ -4,4 +4,5 @@ RUN mkdir /frontend
 WORKDIR /frontend
 
 COPY ../frontend /frontend
+RUN npm install
 EXPOSE 4200
